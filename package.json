@@ -1,0 +1,24 @@
+{
+  "name": "packet-scope",
+  "version": "1.0.0",
+  "description": "Electron app that affords interactive viewing of inbound and outbound network packets.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/almgong/packet-scope.git"
+  },
+  "keywords": [
+    "electron",
+    "node",
+    "packet-scope"
+  ],
+  "author": "almgong",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/almgong/packet-scope/issues"
+  },
+  "homepage": "https://github.com/almgong/packet-scope#readme"
+}
