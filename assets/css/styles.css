@@ -1,0 +1,6 @@
+/* Application specific styles */
+#view-panel {
+	border: 1px solid gray;
+	width: 100%;
+	min-height: 200px;
+}
