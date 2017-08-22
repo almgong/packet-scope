@@ -2,7 +2,7 @@
   "name": "packet-scope",
   "version": "1.0.0",
   "description": "Electron app that affords interactive viewing of inbound and outbound network packets.",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/almgong/packet-scope/issues"
   },
-  "homepage": "https://github.com/almgong/packet-scope#readme"
+  "homepage": "https://github.com/almgong/packet-scope#readme",
+  "devDependencies": {
+    "electron": "^1.7.5",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
 }
