@@ -1,5 +1,9 @@
 /* Application specific styles */
-#view-panel {
+.bordered {
+	border: 1px solid gray;
+}
+
+#packet-index {
 	border: 1px solid gray;
 	width: 100%;
 	min-height: 200px;

@@ -1,6 +1,9 @@
 const { app, BrowserWindow } = require('electron');
+const MainIpc = require('./lib/ipc/main');
 const path = require('path');
 const url = require('url');
+
+const mainIpc = new MainIpc();
 
 /**
  * Main entry point for the electron app. This file should contain/invoke the core logic 
@@ -50,4 +53,25 @@ app.on('activate', () => {
 		createPacketScopeMainWindow();
 	}
 });
+
+// TODO move into its own module
+const network = require('network');
+const pcap = require('pcap');
+
+network.get_active_interface((err, obj) => {
+	if (!err) {
+		let pcap_session = pcap.createSession(obj.name, '');	// '' for filter means log all packets
+		 pcap_session.on('packet', (raw_packet) => {
+		 	let packet = pcap.decode.packet(raw_packet);
+
+		 	console.log('packet!');
+		 	console.log(packet)
+
+		 });
+	} else {
+		console.log('Error in getting active interface')
+	}
+});
+
+
 

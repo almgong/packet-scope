@@ -12,16 +12,17 @@
 		<div class="container">
 			<h2>Packet-scope</h2>
 			<h4>Interactive visualization of network traffic!</h4>
-			<hr />
 
-			<div class="row">
+			<div class="row mt-2">
 				<div class="col-sm-12">
-					<div id="view-panel">
-						View panel: display graphs/interactive content
+					<div id="react-root">
+						<!-- React generated content -->
 					</div>
 				</div>
 			</div>
+
 			<br />
+
 			<div class="row">
 				<div class="col-sm-6">
 					Settings and toggles go here
@@ -36,6 +37,13 @@
 		<script type="text/javascript">
 			window.jQuery = window.$ = require('jquery');
 		</script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="../assets/js/lib/bootstrap.min.js"></script>
+		<script>
+			$(function() {
+				// binds to node's require, which means all subsequent require's will be compiled
+				require("babel-register");
+				require("../assets/js/main");
+			});
+		</script>
 	</body>
 </html>
