@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const MainIpc = require('./lib/ipc/main');
+const PacketListener = require('./lib/packet/packet-listener');
 const path = require('path');
 const url = require('url');
 
@@ -52,24 +53,11 @@ app.on('activate', () => {
   }
 });
 
-// TODO move into its own module
-const network = require('network');
-const pcap = require('pcap');
-
-network.get_active_interface((err, obj) => {
-  if (!err) {
-    let pcap_session = pcap.createSession(obj.name, '');  // '' for filter means log all packets
-     pcap_session.on('packet', (raw_packet) => {
-      let packet = pcap.decode.packet(raw_packet);
-
-      console.log('packet!');
-      console.log(packet);
-
-     });
-  } else {
-    console.log('Error in getting active interface')
-  }
-});
-
-
+// start listening for packets
+const onPacket = (packet) => {
+  console.log('[Main Process]: Got a packet!');
+  console.log(packet)
+};
+packetListener = new PacketListener(onPacket);
+packetListener.start();
 
